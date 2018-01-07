@@ -1,0 +1,189 @@
+fileFormatVersion: 2
+guid: 5038c80142a6b4348a8fe55225bc0b55
+timeCreated: 1511138938
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Pink Mountain
+    21300002: Blue Mountain
+    21300004: Ground
+    21300006: EnvironmentSpriteAtlas_3
+    21300008: EnvironmentSpriteAtlas_4
+    21300010: EnvironmentSpriteAtlas_5
+    21300012: Orange Mountain
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Pink Mountain
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 421
+        width: 512
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue Mountain
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 235
+        width: 512
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 90}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ground
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 175
+        width: 512
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Orange Mountain
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 329
+        width: 512
+        height: 91
+      alignment: 9
+      pivot: {x: 0.45716417, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline:
+    - - {x: -148, y: -145}
+      - {x: -157, y: -84}
+      - {x: 256, y: -83}
+      - {x: 256, y: 51}
+      - {x: 218, y: 69}
+      - {x: 202, y: 69}
+      - {x: 181, y: 50}
+      - {x: 108, y: 61}
+      - {x: 25, y: 71}
+      - {x: 256, y: 71}
+      - {x: 256, y: 142}
+      - {x: 214, y: 162}
+      - {x: 202, y: 161}
+      - {x: 190, y: 145}
+      - {x: 51, y: 143}
+      - {x: 24, y: 162}
+      - {x: 256, y: 163}
+      - {x: 256, y: 234}
+      - {x: 225, y: 256}
+      - {x: 206, y: 256}
+      - {x: 183, y: 241}
+      - {x: 51, y: 235}
+      - {x: 24, y: 256}
+      - {x: -1, y: 256}
+      - {x: -59, y: 233}
+      - {x: -67, y: 253}
+      - {x: -162, y: 231}
+      - {x: -213, y: 249}
+      - {x: -217, y: 250}
+      - {x: -230, y: 244}
+      - {x: -256, y: 221}
+      - {x: -256, y: 163}
+      - {x: 8, y: 163}
+      - {x: -2, y: 154}
+      - {x: -67, y: 161}
+      - {x: -162, y: 139}
+      - {x: -213, y: 157}
+      - {x: -217, y: 158}
+      - {x: -230, y: 152}
+      - {x: -256, y: 129}
+      - {x: -256, y: 71}
+      - {x: 7, y: 71}
+      - {x: -4, y: 62}
+      - {x: -75, y: 68}
+      - {x: -85, y: 55}
+      - {x: -112, y: 45}
+      - {x: -115, y: 44}
+      - {x: -154, y: 50}
+      - {x: -218, y: 70}
+      - {x: -256, y: 46}
+      - {x: -256, y: -145}
+      - {x: -234, y: -145}
+      - {x: -234, y: -138}
+      - {x: -217, y: -145}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
