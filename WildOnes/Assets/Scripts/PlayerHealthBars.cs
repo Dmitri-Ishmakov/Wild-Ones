@@ -9,6 +9,10 @@ public class PlayerHealthBars : MonoBehaviour {
 	public Slider slide2;
 	public Slider slide3;
 	public Slider slide4;
+
+	public Canvas UI;
+	public Canvas TurnOn;
+
 	PlayerStats player1;
 	PlayerStats player2;
 	PlayerStats player3;
@@ -20,11 +24,18 @@ public class PlayerHealthBars : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		UI.enabled = true;
+		TurnOn.enabled = false;
+		slide1.gameObject.SetActive(false);
+		slide2.gameObject.SetActive(false);
+		slide3.gameObject.SetActive(false);
+		slide4.gameObject.SetActive(false);
 		if (GameManager.player1)
 		{
 			slide1.gameObject.SetActive(true);
 			player1 = GameManager.player1.GetComponent<PlayerStats>();
 		}
+		
 		if (GameManager.player2)
 		{
 			slide2.gameObject.SetActive(true);
@@ -97,4 +108,16 @@ public class PlayerHealthBars : MonoBehaviour {
 		}
 	}
 
+
+	public void CloseUI()
+	{
+		UI.enabled = false;
+		TurnOn.enabled = true;
+	}
+
+	public void OpenUI()
+	{
+		UI.enabled = true;
+		TurnOn.enabled = false;
+	}
 }

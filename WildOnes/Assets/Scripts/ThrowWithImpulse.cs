@@ -49,9 +49,10 @@ public class ThrowWithImpulse : MonoBehaviour
 			if (heading.sqrMagnitude > .5)
 			{
 				hasThrown = true;
+				rb.gravityScale = 1;
 				activePlayer.AddForce(heading * currentDistance * player.jumpPower, ForceMode2D.Impulse);
 				increment();
-				rb.sharedMaterial.friction = .5f;
+				
 			}
 			else
 			{

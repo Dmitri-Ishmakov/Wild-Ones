@@ -15,9 +15,9 @@ public class PlayerStats : MonoBehaviour
 	public bool canFly;
 	[HideInInspector]
 	public bool isAlive = true;
-//	[HideInInspector]
+	//	[HideInInspector]
 	public int health = 100;
-	
+
 
 
 	//public GameObject deathEffect;
@@ -29,6 +29,18 @@ public class PlayerStats : MonoBehaviour
 		rend.sprite = play.Image;
 	}
 
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+
+		rb.gravityScale = 1;
+		Rigidbody2D temp = collision.gameObject.GetComponent<Rigidbody2D>();
+		Debug.Log("I just hit something");
+		if (temp != null)
+		{
+
+			temp.gravityScale = 1;
+		}
+	}
 
 	public void TakeDamage(int amount)
 	{

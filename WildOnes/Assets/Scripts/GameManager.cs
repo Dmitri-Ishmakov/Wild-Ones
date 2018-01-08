@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
 				distanceMoved[i, 1] = rb.transform.position;
 				if (rb != null && (distanceMoved[i,0] - distanceMoved[i,1]).sqrMagnitude == 0)
 				{
-					rb.sharedMaterial.friction = .2f;
+					rb.gravityScale = 0;
 					rb.rotation = 0;
 				}
 		}

@@ -77,6 +77,7 @@ public class Weapon : MonoBehaviour
 			Rigidbody2D rb = nearbyObject.GetComponent<Rigidbody2D>();
 			if(rb != null && rb.tag == "Player")
 			{
+				rb.gravityScale = 1;
 				rb.AddForce((rb.transform.position - transform.position).normalized
 					* ((1 / (rb.transform.position - transform.position).magnitude) * explosionStrength), ForceMode2D.Impulse);
 				rb.GetComponent<PlayerStats>().TakeDamage(damage);
