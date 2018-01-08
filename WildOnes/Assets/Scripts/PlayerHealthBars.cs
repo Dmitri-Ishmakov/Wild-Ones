@@ -10,8 +10,8 @@ public class PlayerHealthBars : MonoBehaviour {
 	public Slider slide3;
 	public Slider slide4;
 
-	public Canvas UI;
-	public Canvas TurnOn;
+	public Canvas HealthUI;
+	public Canvas HealthTurnOn;
 
 	PlayerStats player1;
 	PlayerStats player2;
@@ -24,8 +24,8 @@ public class PlayerHealthBars : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		UI.enabled = true;
-		TurnOn.enabled = false;
+		HealthUI.enabled = true;
+		HealthTurnOn.enabled = false;
 		slide1.gameObject.SetActive(false);
 		slide2.gameObject.SetActive(false);
 		slide3.gameObject.SetActive(false);
@@ -109,15 +109,15 @@ public class PlayerHealthBars : MonoBehaviour {
 	}
 
 
-	public void CloseUI()
+	public void CloseHealthUI()
 	{
-		UI.enabled = false;
-		TurnOn.enabled = true;
+		HealthUI.enabled = false;
+		HealthTurnOn.enabled = true;
 	}
 
-	public void OpenUI()
+	public void OpenHealthUI()
 	{
-		UI.enabled = true;
-		TurnOn.enabled = false;
+		HealthUI.enabled = true;
+		HealthTurnOn.enabled = false;
 	}
 }

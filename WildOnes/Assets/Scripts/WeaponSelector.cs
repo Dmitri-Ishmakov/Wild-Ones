@@ -2,46 +2,41 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponSelector : MonoBehaviour {
+public class WeaponSelector : MonoBehaviour
+{
 	public GameObject weapon1;
 	public GameObject weapon2;
+
 	public Canvas weaponSelector;
+	public Canvas PlayerHealthUI;
+	public Canvas PlayerHealthUIOff;
+
+	private bool stateBefore;
 
 
-	public void OnMouseDown()
+	private void Update()
 	{
-		//if it is player 1's turn && nothing is selected for them to do set the weaponSelector to the other one
-		if(GameManager.whoseTurn == 0 && GameManager.isThrowable[0] == -1 && this.transform.position == GameManager.player1.transform.position)
+		if (Input.GetKeyDown("space"))
 		{
-			weaponSelector.transform.position = GameManager.player1.transform.position;
+			stateBefore = PlayerHealthUI.enabled;
 			weaponSelector.enabled = true;
+			PlayerHealthUI.enabled = false;
+			PlayerHealthUIOff.enabled = false;
 		}
-		else if (GameManager.whoseTurn == 1 && GameManager.isThrowable[1] == -1 && this.transform.position == GameManager.player2.transform.position)
-		{
-			weaponSelector.transform.position = GameManager.player2.transform.position;
-			weaponSelector.enabled = true;
-		}
-		else if (GameManager.whoseTurn == 2 && GameManager.isThrowable[2] == -1 && this.transform.position == GameManager.player3.transform.position)
-		{
-			weaponSelector.transform.position = GameManager.player3.transform.position;
-			weaponSelector.enabled = true;
-		}
-		else if (GameManager.whoseTurn == 3 && GameManager.isThrowable[3] == -1 && this.transform.position == GameManager.player4.transform.position)
-		{
-			weaponSelector.transform.position = GameManager.player4.transform.position;
-			weaponSelector.enabled = true;
-		}
+
 	}
 
 	public void selectThrow()
 	{
 		GameManager.isThrowable[GameManager.whoseTurn] = 0;
 		weaponSelector.enabled = false;
+		PlayerHealthUI.enabled = stateBefore;
+		PlayerHealthUIOff.enabled = !stateBefore;
 	}
 
 	public void selectWeapon1()
 	{
-		if(GameManager.whoseTurn == 0)
+		if (GameManager.whoseTurn == 0)
 		{
 			GameObject wep = Instantiate(weapon1, GameManager.player1.transform.position, Quaternion.identity);
 			wep.GetComponent<Rigidbody2D>().isKinematic = true;
@@ -65,8 +60,10 @@ public class WeaponSelector : MonoBehaviour {
 			wep.GetComponent<Rigidbody2D>().isKinematic = true;
 			Physics2D.IgnoreCollision(wep.GetComponent<Collider2D>(), GameManager.player4.GetComponent<Collider2D>());
 		}
-		
-		GameManager.isThrowable[GameManager.whoseTurn ] = 1;
+
+		GameManager.isThrowable[GameManager.whoseTurn] = 1;
 		weaponSelector.enabled = false;
+		PlayerHealthUI.enabled = stateBefore;
+		PlayerHealthUIOff.enabled = !stateBefore;
 	}
 }
