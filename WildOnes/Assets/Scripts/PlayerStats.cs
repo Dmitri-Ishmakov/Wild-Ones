@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour {
+public class PlayerStats : MonoBehaviour
+{
 	public SpriteRenderer rend;
 	public ScriptablePlayer play;
+	public Rigidbody2D rb;
 	[HideInInspector]
 	public float jumpPower;
 	[HideInInspector]
@@ -13,8 +15,9 @@ public class PlayerStats : MonoBehaviour {
 	public bool canFly;
 	[HideInInspector]
 	public bool isAlive = true;
-	[HideInInspector]
+//	[HideInInspector]
 	public int health = 100;
+	
 
 
 	//public GameObject deathEffect;
@@ -25,7 +28,6 @@ public class PlayerStats : MonoBehaviour {
 		canFly = play.canFly;
 		rend.sprite = play.Image;
 	}
-
 
 
 	public void TakeDamage(int amount)
@@ -47,6 +49,6 @@ public class PlayerStats : MonoBehaviour {
 		gameObject.SetActive(false);
 		isAlive = false;
 		GameManager.numPlayersAlive--;
-		
+
 	}
 }

@@ -71,17 +71,19 @@ public class Weapon : MonoBehaviour
 
 	public void Explode(int damage)
 	{
-		for (int i = 0; i < GameManager.activePlayers.Length; i++)
-		{
-			players[i] = Vector2.Distance(GameManager.activePlayers[i].transform.position, transform.position);
-			if (players[i] < explosionRadius)
+		Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
+
+		foreach(Collider2D nearbyObject in colliders){
+			Rigidbody2D rb = nearbyObject.GetComponent<Rigidbody2D>();
+			if(rb != null && rb.tag == "Player")
 			{
-				PlayerStats play = GameManager.activePlayers[i].GetComponent<PlayerStats>();
-				play.TakeDamage(damage);
-				GameManager.activePlayers[i].GetComponent<Rigidbody2D>().AddForce((GameManager.activePlayers[i].transform.position - transform.position).normalized
-					* ((1 / players[i]) * explosionStrength), ForceMode2D.Impulse);
+				rb.AddForce((rb.transform.position - transform.position).normalized
+					* ((1 / (rb.transform.position - transform.position).magnitude) * explosionStrength), ForceMode2D.Impulse);
+				rb.GetComponent<PlayerStats>().TakeDamage(damage);
 			}
 		}
+
+
 
 		Destroy(gameObject);
 	}

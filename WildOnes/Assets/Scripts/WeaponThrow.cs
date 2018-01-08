@@ -43,7 +43,7 @@ public class WeaponThrow : MonoBehaviour
 			hasThrown = true;
 			hasGrabbed = false;
 			rb.isKinematic = false;
-			rb.AddForce(heading * currentDistance*player.throwPower, ForceMode2D.Impulse);
+			rb.AddForce(heading * currentDistance*2, ForceMode2D.Impulse);
 			StartCoroutine(Stall(.5f));
 			StartCoroutine(Wait(2));
 		}

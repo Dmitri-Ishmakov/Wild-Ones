@@ -51,6 +51,7 @@ public class ThrowWithImpulse : MonoBehaviour
 				hasThrown = true;
 				activePlayer.AddForce(heading * currentDistance * player.jumpPower, ForceMode2D.Impulse);
 				increment();
+				rb.sharedMaterial.friction = .5f;
 			}
 			else
 			{

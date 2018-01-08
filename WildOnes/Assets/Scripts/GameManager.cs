@@ -22,12 +22,15 @@ public class GameManager : MonoBehaviour
 	private GameObject[] players;
 
 	public static GameObject[] activePlayers;
+	public static Vector3[,] distanceMoved;
 
 	public static int whoseTurnLast = 0;
 	public static int whoseTurn = 0;
 	public static int numPlayers;
 	public static int numPlayersAlive;
 	public GameObject[] turnAnnouncer;
+
+	private float counter = 1f;
 
 
 
@@ -39,6 +42,7 @@ public class GameManager : MonoBehaviour
 		isThrowable = new int[transform.childCount];
 		players = new GameObject[transform.childCount];
 		activePlayers = new GameObject[numPlayers];
+		distanceMoved = new Vector3[numPlayers, 2];
 		for (int i = 0; i < transform.childCount; i++)
 		{
 			players[i] = transform.GetChild(i).gameObject;
@@ -67,11 +71,32 @@ public class GameManager : MonoBehaviour
 		}
 
 		numPlayersAlive = numPlayers;
+		for(int i = 0; i < activePlayers.Length; i++)
+		{
+			distanceMoved[i, 0] = activePlayers[i].transform.position;
+			distanceMoved[i, 1] = activePlayers[i].transform.position;
+		}
 
 	}
 
 	private void Update()
 	{
+		counter -= Time.deltaTime;
+		if (counter <= 0) {
+			counter = 1f;
+			for (int i = 0; i < activePlayers.Length; i++)
+			{
+				Rigidbody2D rb = activePlayers[i].GetComponent<Rigidbody2D>();
+				distanceMoved[i, 0] = distanceMoved[i, 1];
+				distanceMoved[i, 1] = rb.transform.position;
+				if (rb != null && (distanceMoved[i,0] - distanceMoved[i,1]).sqrMagnitude == 0)
+				{
+					rb.sharedMaterial.friction = .2f;
+					rb.rotation = 0;
+				}
+		}
+		}
+
 		if (numPlayersAlive > 0)
 		{
 			if (numPlayersAlive == 1)
