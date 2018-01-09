@@ -16,7 +16,7 @@ public class WeaponSelector : MonoBehaviour
 
 	private void Update()
 	{
-		if (Input.GetKeyDown("space"))
+		if (Input.GetKeyDown("space") && GameManager.isThrowable[GameManager.whoseTurn] == -1)
 		{
 			stateBefore = PlayerHealthUI.enabled;
 			weaponSelector.enabled = true;

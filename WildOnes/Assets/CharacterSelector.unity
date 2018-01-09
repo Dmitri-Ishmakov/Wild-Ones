@@ -211,8 +211,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 131959579}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 15, y: 15, z: 1}
+  m_LocalPosition: {x: 0, y: -0.018, z: 0}
+  m_LocalScale: {x: 17.770632, y: 16.800915, z: 1}
   m_Children: []
   m_Father: {fileID: 1991839867}
   m_RootOrder: 2
@@ -296,7 +296,7 @@ GameObject:
   - component: {fileID: 216534679}
   - component: {fileID: 216534680}
   m_Layer: 0
-  m_Name: Duck_noshading
+  m_Name: Jimothy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -310,7 +310,7 @@ Transform:
   m_GameObject: {fileID: 216534678}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.03, y: 0.01, z: 0}
-  m_LocalScale: {x: 2.7227528, y: 2.3399198, z: 1}
+  m_LocalScale: {x: 2.7227519, y: 2.0397675, z: 1}
   m_Children: []
   m_Father: {fileID: 1991839867}
   m_RootOrder: 3
@@ -349,7 +349,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7ef192cb0cfb2de4f90d329060d7ae8d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 19a0f09e1ec4cb44fa22dee86a6a6280, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1369,7 +1369,7 @@ GameObject:
   - component: {fileID: 1390676968}
   - component: {fileID: 1390676967}
   m_Layer: 0
-  m_Name: Coin
+  m_Name: Ronaldo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1382,8 +1382,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1390676965}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 15, y: 15, z: 1}
+  m_LocalPosition: {x: -0.018, y: -0, z: 0}
+  m_LocalScale: {x: 2.6408324, y: 1.9604867, z: 1}
   m_Children: []
   m_Father: {fileID: 1991839867}
   m_RootOrder: 0
@@ -1404,7 +1404,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 0.9, y: 1.2}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1447,7 +1447,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b66385508c94c2c42922938a8496fb27, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cb3be0ac30d03794cb972d3c14ab5f4e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

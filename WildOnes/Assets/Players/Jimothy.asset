@@ -9,11 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91b6278f03bc0264984e12d2741837e2, type: 3}
-  m_Name: Coin
+  m_Name: Jimothy
   m_EditorClassIdentifier: 
-  name: Coin
-  description: Just a temp coin sprite
-  jumpPower: 0.5
+  name: Jimothy
+  description: Hullo, my name is Jimothy and I will win this round.
+  jumpPower: 0.75
   throwPower: 0.5
-  canFly: 0
-  Image: {fileID: 21300000, guid: b66385508c94c2c42922938a8496fb27, type: 3}
+  canFly: 1
+  Image: {fileID: 21300000, guid: 19a0f09e1ec4cb44fa22dee86a6a6280, type: 3}

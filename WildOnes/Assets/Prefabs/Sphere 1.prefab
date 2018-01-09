@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 224280164600098986}
   - component: {fileID: 222839307632193148}
   - component: {fileID: 114218527671657586}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 114413753021005542}
   - component: {fileID: 114900886085246850}
   - component: {fileID: 212949729293098628}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sphere 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4362939390465670}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: WeaponTimer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ Transform:
   m_GameObject: {fileID: 1620976097747370}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -11.221271, y: 3.3765981, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 4362939390465670}
   m_Father: {fileID: 0}
@@ -162,7 +162,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.1
 --- !u!114 &114075777355041534
 MonoBehaviour:
   m_ObjectHideFlags: 1
