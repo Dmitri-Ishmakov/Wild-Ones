@@ -11,6 +11,7 @@ public class ScriptableWeapon : ScriptableObject {
 	public int fuseTime;
 	public int explosionRadius;
 	public int explosionForce;
+	public int terrainDamage;
 
 	public Sprite image;
 	

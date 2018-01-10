@@ -34,7 +34,6 @@ public class PlayerStats : MonoBehaviour
 
 		rb.gravityScale = 1;
 		Rigidbody2D temp = collision.gameObject.GetComponent<Rigidbody2D>();
-		Debug.Log("I just hit something");
 		if (temp != null)
 		{
 

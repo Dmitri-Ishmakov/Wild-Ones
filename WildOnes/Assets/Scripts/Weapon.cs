@@ -19,6 +19,8 @@ public class Weapon : MonoBehaviour
 	private float fuseLeft;
 	[HideInInspector]
 	public int intFuseLeft;
+	[HideInInspector]
+	public int terrainDamage;
 
 
 	//use this to keep track of the text and change it when its an int
@@ -42,6 +44,7 @@ public class Weapon : MonoBehaviour
 		damage = weap.damage;
 		render.sprite = weap.image;
 		render.sortingLayerName = "Weapon";
+		terrainDamage = weap.terrainDamage;
 
 		fuseLeft = fuseLength;
 		intFuseLeft = fuseLength - 1;
@@ -75,12 +78,17 @@ public class Weapon : MonoBehaviour
 
 		foreach(Collider2D nearbyObject in colliders){
 			Rigidbody2D rb = nearbyObject.GetComponent<Rigidbody2D>();
+			DestructableObject destr = nearbyObject.GetComponent<DestructableObject>();
 			if(rb != null && rb.tag == "Player")
 			{
 				rb.gravityScale = 1;
 				rb.AddForce((rb.transform.position - transform.position).normalized
 					* ((1 / (rb.transform.position - transform.position).magnitude) * explosionStrength), ForceMode2D.Impulse);
 				rb.GetComponent<PlayerStats>().TakeDamage(damage);
+			}
+			if(destr != null)
+			{
+				destr.Damage(terrainDamage);
 			}
 		}
 
