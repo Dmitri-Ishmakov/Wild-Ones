@@ -15,8 +15,12 @@ public class PlayerStats : MonoBehaviour
 	public bool canFly;
 	[HideInInspector]
 	public bool isAlive = true;
-	//	[HideInInspector]
-	public int health = 100;
+	[HideInInspector]
+	public int health = 10;
+	[HideInInspector]
+	public int damageDealt = 0;
+	[HideInInspector]
+	public int kills = 0;
 
 
 

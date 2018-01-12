@@ -7,22 +7,29 @@ public class GameManager : MonoBehaviour
 {
 	public Canvas endOfGame;
 
+	// Make these private and use the Active Player array to simplify accessing objects
 	public static GameObject player1;
 	public static GameObject player2;
 	public static GameObject player3;
 	public static GameObject player4;
 
+
 	public static int[] isThrowable;
-	// isThrowable will keep track of what object should be thrown. 
-	// A 0 will be the player
-	// A 1 will be weapon 1
-	// A 2 will be weapon 2
-	// etc.
+	/*
+	 *  isThrowable will keep track of what object should be thrown:
+	 *  
+	 * A 0 will be the player
+	 * A 1 will be weapon 1
+	 * A 2 will be weapon 2
+	 * etc.
+	 * 
+	 */
 
 	private GameObject[] players;
 
 	public static GameObject[] activePlayers;
 	public static Vector3[,] distanceMoved;
+	public static bool gameOver = false;
 
 	public static int whoseTurnLast = 0;
 	public static int whoseTurn = 0;
@@ -71,7 +78,7 @@ public class GameManager : MonoBehaviour
 		}
 
 		numPlayersAlive = numPlayers;
-		for(int i = 0; i < activePlayers.Length; i++)
+		for (int i = 0; i < activePlayers.Length; i++)
 		{
 			distanceMoved[i, 0] = activePlayers[i].transform.position;
 			distanceMoved[i, 1] = activePlayers[i].transform.position;
@@ -82,38 +89,44 @@ public class GameManager : MonoBehaviour
 	private void Update()
 	{
 		counter -= Time.deltaTime;
-		if (counter <= 0) {
+		if (counter <= 0)
+		{
 			counter = 1f;
 			for (int i = 0; i < activePlayers.Length; i++)
 			{
 				Rigidbody2D rb = activePlayers[i].GetComponent<Rigidbody2D>();
 				distanceMoved[i, 0] = distanceMoved[i, 1];
 				distanceMoved[i, 1] = rb.transform.position;
-				if (rb != null && (distanceMoved[i,0] - distanceMoved[i,1]).sqrMagnitude == 0)
+				if (rb != null && (distanceMoved[i, 0] - distanceMoved[i, 1]).sqrMagnitude == 0)
 				{
 					rb.gravityScale = 0;
 					rb.rotation = 0;
 				}
+			}
 		}
-		}
-
-		if (numPlayersAlive > 0)
+		if (!gameOver)
 		{
-			if (numPlayersAlive == 1)
+			if (numPlayersAlive > 1)
+			{
+				if (whoseTurn > numPlayers - 1)
+				{
+					whoseTurn = 0;
+				}
+				PlayerStats play = activePlayers[whoseTurn].GetComponent<PlayerStats>();
+				if (!play.isAlive)
+				{
+					whoseTurn++;
+				}
+
+
+
+			}
+			else
 			{
 				numPlayersAlive = 0;
 				endOfGame.enabled = true;
+				gameOver = true;
 				Debug.Log("Game Over");
-			}
-
-			if (whoseTurn > numPlayers - 1)
-			{
-				whoseTurn = 0;
-			}
-			PlayerStats play = activePlayers[whoseTurn].GetComponent<PlayerStats>();
-			if (!play.isAlive)
-			{
-				whoseTurn++;
 			}
 		}
 	}

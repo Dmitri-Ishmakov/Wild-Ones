@@ -16,7 +16,7 @@ public class WeaponSelector : MonoBehaviour
 
 	private void Update()
 	{
-		if (Input.GetKeyDown("space") && GameManager.isThrowable[GameManager.whoseTurn] == -1)
+		if (GameManager.isThrowable[GameManager.whoseTurn] == -1 && Input.GetKeyDown("space"))
 		{
 			stateBefore = PlayerHealthUI.enabled;
 			weaponSelector.enabled = true;
@@ -36,34 +36,18 @@ public class WeaponSelector : MonoBehaviour
 
 	public void selectWeapon1()
 	{
-		if (GameManager.whoseTurn == 0)
+		//Insantiate a weapon at the active player's location and make it so that the weapon does not collide with the active player
+		if (GameManager.isThrowable[GameManager.whoseTurn] == -1)
 		{
-			GameObject wep = Instantiate(weapon1, GameManager.player1.transform.position, Quaternion.identity);
+			GameObject wep = Instantiate(weapon1, GameManager.activePlayers[GameManager.whoseTurn].transform.position, Quaternion.identity);
 			wep.GetComponent<Rigidbody2D>().isKinematic = true;
-			Physics2D.IgnoreCollision(wep.GetComponent<Collider2D>(), GameManager.player1.GetComponent<Collider2D>());
-		}
-		else if (GameManager.whoseTurn == 1)
-		{
-			GameObject wep = Instantiate(weapon1, GameManager.player2.transform.position, Quaternion.identity);
-			wep.GetComponent<Rigidbody2D>().isKinematic = true;
-			Physics2D.IgnoreCollision(wep.GetComponent<Collider2D>(), GameManager.player2.GetComponent<Collider2D>());
-		}
-		else if (GameManager.whoseTurn == 2)
-		{
-			GameObject wep = Instantiate(weapon1, GameManager.player3.transform.position, Quaternion.identity);
-			wep.GetComponent<Rigidbody2D>().isKinematic = true;
-			Physics2D.IgnoreCollision(wep.GetComponent<Collider2D>(), GameManager.player3.GetComponent<Collider2D>());
-		}
-		else if (GameManager.whoseTurn == 3)
-		{
-			GameObject wep = Instantiate(weapon1, GameManager.player4.transform.position, Quaternion.identity);
-			wep.GetComponent<Rigidbody2D>().isKinematic = true;
-			Physics2D.IgnoreCollision(wep.GetComponent<Collider2D>(), GameManager.player4.GetComponent<Collider2D>());
-		}
+			Physics2D.IgnoreCollision(wep.GetComponent<Collider2D>(), GameManager.activePlayers[GameManager.whoseTurn].GetComponent<Collider2D>());
 
-		GameManager.isThrowable[GameManager.whoseTurn] = 1;
-		weaponSelector.enabled = false;
-		PlayerHealthUI.enabled = stateBefore;
-		PlayerHealthUIOff.enabled = !stateBefore;
+
+			GameManager.isThrowable[GameManager.whoseTurn] = 1;
+			weaponSelector.enabled = false;
+			PlayerHealthUI.enabled = stateBefore;
+			PlayerHealthUIOff.enabled = !stateBefore;
+		}
 	}
 }

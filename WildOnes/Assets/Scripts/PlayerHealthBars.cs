@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class PlayerHealthBars : MonoBehaviour {
 
+	// This needs updated to hold these values in array's so I can access them through references to the 
+	// Active player array
+
 	public Color initialColor;
 	public Color midHPColor;
 	public Color lowHPColor;
@@ -64,13 +67,15 @@ public class PlayerHealthBars : MonoBehaviour {
 		}
 	}
 
+
+
 	private void Update()
 	{
+
+		
 		if (GameManager.player1)
 		{
 			play1HP = player1.health / 100f;
-
-
 			
 			 // Change the color of the healthbar based on the amount of health left
 			 

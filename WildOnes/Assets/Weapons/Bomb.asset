@@ -19,4 +19,4 @@ MonoBehaviour:
   explosionForce: 8
   terrainDamage: 1
   image: {fileID: 21300000, guid: cd1e2f8bbb9ca4544827f45ab537a6b0, type: 3}
-  explosion: {fileID: 1937606737876824, guid: 7755746f442525d458071f14e006a020, type: 2}
+  explosion: {fileID: 1118080101110192, guid: 7afea0a11d71b4047b0f321398e7ccf7, type: 2}

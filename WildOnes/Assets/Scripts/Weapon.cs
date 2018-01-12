@@ -23,6 +23,8 @@ public class Weapon : MonoBehaviour
 	public int terrainDamage;
 	[HideInInspector]
 	public GameObject explosion;
+	[HideInInspector]
+	public int whoThrew;
 
 
 	//use this to keep track of the text and change it when its an int
@@ -48,6 +50,8 @@ public class Weapon : MonoBehaviour
 		render.sprite = weap.image;
 		render.sortingLayerName = "Weapon";
 		terrainDamage = weap.terrainDamage;
+
+		whoThrew = GameManager.whoseTurn;
 
 		fuseLeft = fuseLength;
 		intFuseLeft = fuseLength - 1;
@@ -78,7 +82,8 @@ public class Weapon : MonoBehaviour
 	public void Explode(int damage)
 	{
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
-		Instantiate(explosion, transform.position, transform.rotation);
+		GameObject cloneExplosion = Instantiate(explosion, transform.position, transform.rotation);
+		PlayerStats activePlayer = GameManager.activePlayers[whoThrew].GetComponent<PlayerStats>();
 
 		foreach(Collider2D nearbyObject in colliders){
 			Rigidbody2D rb = nearbyObject.GetComponent<Rigidbody2D>();
@@ -89,6 +94,11 @@ public class Weapon : MonoBehaviour
 				rb.AddForce((rb.transform.position - transform.position).normalized
 					* ((1 / (rb.transform.position - transform.position).magnitude) * explosionStrength), ForceMode2D.Impulse);
 				rb.GetComponent<PlayerStats>().TakeDamage(damage);
+				activePlayer.damageDealt += damage;
+				if(rb.GetComponent<PlayerStats>().health <= 0)
+				{
+					activePlayer.kills++;
+				}
 			}
 			if(destr != null)
 			{
@@ -99,6 +109,6 @@ public class Weapon : MonoBehaviour
 
 
 		Destroy(gameObject);
-		DestroyImmediate(explosion);
+		Destroy(cloneExplosion);
 	}
 }

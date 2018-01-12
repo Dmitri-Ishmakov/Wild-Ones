@@ -34,31 +34,12 @@ public class Throw : MonoBehaviour {
 
 	private void OnMouseDown()
 	{
-		if (GameManager.whoseTurn == 1 && rb.position.x == GameManager.player1.transform.position.x)
+		if(GameManager.activePlayers[GameManager.whoseTurn].transform.position.x == rb.position.x)
+		
 		{
 			isPressed = true;
 			rb.isKinematic = true;
 			hasGrabbed = true;
-		}
-		else if (GameManager.whoseTurn == 2 && rb.position.x == GameManager.player2.transform.position.x)
-		{
-			isPressed = true;
-			rb.isKinematic = true;
-			hasGrabbed = true;
-
-		}
-		else if (GameManager.whoseTurn == 3 && rb.position.x == GameManager.player3.transform.position.x)
-		{
-			isPressed = true;
-			rb.isKinematic = true;
-			hasGrabbed = true;
-		}
-		else if (GameManager.whoseTurn == 4 && rb.position.x == GameManager.player4.transform.position.x)
-		{
-			isPressed = true;
-			rb.isKinematic = true;
-			hasGrabbed = true;
-
 		}
 	}
 
