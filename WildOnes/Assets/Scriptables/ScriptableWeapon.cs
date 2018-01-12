@@ -14,5 +14,7 @@ public class ScriptableWeapon : ScriptableObject {
 	public int terrainDamage;
 
 	public Sprite image;
+
+	public GameObject explosion;
 	
 }

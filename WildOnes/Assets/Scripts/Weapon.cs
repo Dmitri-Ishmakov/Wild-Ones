@@ -21,6 +21,8 @@ public class Weapon : MonoBehaviour
 	public int intFuseLeft;
 	[HideInInspector]
 	public int terrainDamage;
+	[HideInInspector]
+	public GameObject explosion;
 
 
 	//use this to keep track of the text and change it when its an int
@@ -37,6 +39,7 @@ public class Weapon : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
+		explosion = weap.explosion;
 		players = new float[4];
 		fuseLength = weap.fuseTime;
 		explosionRadius = weap.explosionRadius;
@@ -75,6 +78,7 @@ public class Weapon : MonoBehaviour
 	public void Explode(int damage)
 	{
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
+		Instantiate(explosion, transform.position, transform.rotation);
 
 		foreach(Collider2D nearbyObject in colliders){
 			Rigidbody2D rb = nearbyObject.GetComponent<Rigidbody2D>();
@@ -95,5 +99,6 @@ public class Weapon : MonoBehaviour
 
 
 		Destroy(gameObject);
+		DestroyImmediate(explosion);
 	}
 }
