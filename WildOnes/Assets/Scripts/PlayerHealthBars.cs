@@ -24,6 +24,9 @@ public class PlayerHealthBars : MonoBehaviour {
 	public Slider slide4;
 	public GameObject fill4;
 
+	private Slider[] slides;
+	private GameObject[] fills;
+
 	public Canvas HealthUI;
 	public Canvas HealthTurnOn;
 
@@ -31,39 +34,60 @@ public class PlayerHealthBars : MonoBehaviour {
 	PlayerStats player2;
 	PlayerStats player3;
 	PlayerStats player4;
+	private PlayerStats[] playerstats;
+
 	float play1HP;
 	float play2HP;
 	float play3HP;
 	float play4HP;
+	private float[] playHP;
+
+	private GameObject[] actives = new GameObject[4];
+	private int numPlayers;
 
 	// Use this for initialization
 	void Start () {
+		for(int i = 0; i < GameManager.activePlayers.Length; i++)
+		{
+			actives[i] = GameManager.activePlayers[i];
+		}
+		numPlayers = GameManager.numPlayers;
+
+		slides = new Slider[4];
+		slides[0] = slide1;
+		slides[1] = slide2;
+		slides[2] = slide3;
+		slides[3] = slide4;
+
+		fills = new GameObject[4];
+		fills[0] = fill1;
+		fills[1] = fill2;
+		fills[2] = fill3;
+		fills[3] = fill4;
+
+		playHP = new float[4];
+		playHP[0] = play1HP;
+		playHP[1] = play2HP;
+		playHP[2] = play3HP;
+		playHP[3] = play4HP;
+
+		playerstats = new PlayerStats[4];
+		playerstats[0] = player1;
+		playerstats[1] = player2;
+		playerstats[2] = player3;
+		playerstats[3] = player4;
+
 		HealthUI.enabled = true;
 		HealthTurnOn.enabled = false;
 		slide1.gameObject.SetActive(false);
 		slide2.gameObject.SetActive(false);
 		slide3.gameObject.SetActive(false);
 		slide4.gameObject.SetActive(false);
-		if (GameManager.player1)
+
+		for(int i = 0; i < numPlayers; i++)
 		{
-			slide1.gameObject.SetActive(true);
-			player1 = GameManager.player1.GetComponent<PlayerStats>();
-		}
-		
-		if (GameManager.player2)
-		{
-			slide2.gameObject.SetActive(true);
-			player2 = GameManager.player2.GetComponent<PlayerStats>();
-		}
-		if (GameManager.player3)
-		{
-			slide3.gameObject.SetActive(true);
-			player3 = GameManager.player3.GetComponent<PlayerStats>();
-		}
-		if (GameManager.player4)
-		{
-			slide4.gameObject.SetActive(true);
-			player4 = GameManager.player4.GetComponent<PlayerStats>();
+			playerstats[i] = actives[i].GetComponent<PlayerStats>();
+			slides[i].gameObject.SetActive(true);
 		}
 	}
 
@@ -71,87 +95,18 @@ public class PlayerHealthBars : MonoBehaviour {
 
 	private void Update()
 	{
+		for (int i = 0; i < numPlayers; i ++){
+			playHP[i] = playerstats[i].health / 100f;
 
-		
-		if (GameManager.player1)
-		{
-			play1HP = player1.health / 100f;
-			
-			 // Change the color of the healthbar based on the amount of health left
-			 
-			 if(play1HP <= .5 && play1HP > .25)
-			 {
-				fill1.GetComponent<Image>().color = midHPColor;
-			 }
-			 if(play1HP <= .25)
-			 {
-				fill1.GetComponent<Image>().color = lowHPColor;
-			 }
-			 
-			slide1.value = play1HP;
-		}
-		else
-		{
-			slide1.value = 0;
-		}
-
-		if (GameManager.player2)
-		{
-			play2HP = player2.health / 100f;
-
-			if (play2HP <= .5 && play2HP > .25)
+			if(playHP[i] <= .5 && playHP[i] > .25)
 			{
-				fill2.GetComponent<Image>().color = midHPColor;
+				fills[i].GetComponent<Image>().color = midHPColor;
 			}
-			if (play2HP <= .25)
+			else if (playHP[i] <= .25)
 			{
-				fill2.GetComponent<Image>().color = lowHPColor;
+				fills[i].GetComponent<Image>().color = lowHPColor;
 			}
-
-			slide2.value = play2HP;
-		}
-		else
-		{
-			slide2.value = 0;
-		}
-
-		if (GameManager.player3)
-		{
-			play3HP = player3.health / 100f;
-
-			if (play3HP <= .5 && play3HP > .25)
-			{
-				fill3.GetComponent<Image>().color = midHPColor;
-			}
-			if (play3HP <= .25)
-			{
-				fill3.GetComponent<Image>().color = lowHPColor;
-			}
-
-			slide3.value = play3HP;
-		}
-		else
-		{
-			slide3.value = 0;
-		}
-		if (GameManager.player4)
-		{
-			play4HP = player4.health / 100f;
-
-			if (play4HP <= .5 && play4HP > .25)
-			{
-				fill4.GetComponent<Image>().color = midHPColor;
-			}
-			if (play4HP <= .25)
-			{
-				fill4.GetComponent<Image>().color = lowHPColor;
-			}
-
-			slide4.value = play4HP;
-		}
-		else
-		{
-			slide4.value = 0;
+			slides[i].value = playHP[i];
 		}
 	}
 

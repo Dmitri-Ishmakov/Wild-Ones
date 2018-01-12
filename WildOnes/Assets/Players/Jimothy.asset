@@ -13,7 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Jimothy
   description: Hullo, my name is Jimothy and I will win this round.
+  Image: {fileID: 21300000, guid: 19a0f09e1ec4cb44fa22dee86a6a6280, type: 3}
+  health: 100
   jumpPower: 0.75
   throwPower: 0.5
   canFly: 1
-  Image: {fileID: 21300000, guid: 19a0f09e1ec4cb44fa22dee86a6a6280, type: 3}

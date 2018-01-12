@@ -13,7 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Ronaldo
   description: I am Ronaldo the Tree Frog!
+  Image: {fileID: 21300000, guid: cb3be0ac30d03794cb972d3c14ab5f4e, type: 3}
+  health: 10
   jumpPower: 1
   throwPower: 0.75
   canFly: 0
-  Image: {fileID: 21300000, guid: cb3be0ac30d03794cb972d3c14ab5f4e, type: 3}

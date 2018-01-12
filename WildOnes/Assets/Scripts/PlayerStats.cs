@@ -16,7 +16,7 @@ public class PlayerStats : MonoBehaviour
 	[HideInInspector]
 	public bool isAlive = true;
 	[HideInInspector]
-	public int health = 10;
+	public int health;
 	[HideInInspector]
 	public int damageDealt = 0;
 	[HideInInspector]
@@ -27,6 +27,7 @@ public class PlayerStats : MonoBehaviour
 	//public GameObject deathEffect;
 	private void Start()
 	{
+		health = play.health;
 		jumpPower = play.jumpPower;
 		throwPower = play.throwPower;
 		canFly = play.canFly;
@@ -55,7 +56,7 @@ public class PlayerStats : MonoBehaviour
 		}
 	}
 
-	void Die()
+	public void Die()
 	{
 
 		/* need to add some sort of effect which causes them to pop or something

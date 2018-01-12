@@ -97,6 +97,7 @@ public class Weapon : MonoBehaviour
 				activePlayer.damageDealt += damage;
 				if(rb.GetComponent<PlayerStats>().health <= 0)
 				{
+					activePlayer.damageDealt += rb.GetComponent<PlayerStats>().health;
 					activePlayer.kills++;
 				}
 			}

@@ -126,7 +126,6 @@ public class GameManager : MonoBehaviour
 				numPlayersAlive = 0;
 				endOfGame.enabled = true;
 				gameOver = true;
-				Debug.Log("Game Over");
 			}
 		}
 	}
