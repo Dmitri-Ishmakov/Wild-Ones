@@ -26,6 +26,7 @@ public class WeaponThrow : MonoBehaviour
 
 	private void OnMouseDown()
 	{
+		Debug.Log("I Have Actual Clicked This");
 		whoseTurn = GameManager.whoseTurn;
 		if (GameManager.isThrowable[whoseTurn] == 1)
 		{

@@ -3099,10 +3099,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6d901b3f89b0224ca63f54f7b297b16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialColor: {r: 0.26512647, g: 0.9485294, b: 0.17436202, a: 1}
+  midHPColor: {r: 0.8161765, g: 0.79366124, b: 0, a: 1}
+  lowHPColor: {r: 1, g: 0, b: 0, a: 1}
   slide1: {fileID: 1061526766}
+  fill1: {fileID: 187369138}
   slide2: {fileID: 563950124}
+  fill2: {fileID: 1562193322}
   slide3: {fileID: 435679092}
+  fill3: {fileID: 1360181145}
   slide4: {fileID: 1738768275}
+  fill4: {fileID: 803669030}
   HealthUI: {fileID: 232463381}
   HealthTurnOn: {fileID: 186820787}
 --- !u!114 &1276296418
