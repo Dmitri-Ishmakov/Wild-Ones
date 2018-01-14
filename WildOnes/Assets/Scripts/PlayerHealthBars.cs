@@ -30,17 +30,19 @@ public class PlayerHealthBars : MonoBehaviour {
 	public Canvas HealthUI;
 	public Canvas HealthTurnOn;
 
-	PlayerStats player1;
-	PlayerStats player2;
-	PlayerStats player3;
-	PlayerStats player4;
+	private PlayerStats player1;
+	private PlayerStats player2;
+	private PlayerStats player3;
+	private PlayerStats player4;
 	private PlayerStats[] playerstats;
 
-	float play1HP;
-	float play2HP;
-	float play3HP;
-	float play4HP;
+	
+	private float play1HP;
+	private float play2HP;
+	private float play3HP;
+	private float play4HP;
 	private float[] playHP;
+	
 
 	private GameObject[] actives = new GameObject[4];
 	private int numPlayers;

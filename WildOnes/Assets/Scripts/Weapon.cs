@@ -32,17 +32,13 @@ public class Weapon : MonoBehaviour
 	public float counter = 0;
 	[HideInInspector]
 	public int intCounter = 0;
-
-	//Player distance Info
-	private float[] players;
-
+	
 
 
 	// Use this for initialization
 	void Start()
 	{
 		explosion = weap.explosion;
-		players = new float[4];
 		fuseLength = weap.fuseTime;
 		explosionRadius = weap.explosionRadius;
 		explosionStrength = weap.explosionForce;

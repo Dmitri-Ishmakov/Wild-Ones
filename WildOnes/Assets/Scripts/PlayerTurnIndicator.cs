@@ -22,6 +22,7 @@ public class PlayerTurnIndicator : MonoBehaviour {
 		for(int i = 0; i < GameManager.numPlayers; i++)
 		{
 			icons[i].GetComponent<Image>().sprite = GameManager.activePlayers[i].GetComponent<SpriteRenderer>().sprite;
+			icons[i].GetComponent<Image>().color = GameManager.activePlayers[i].GetComponent<SpriteRenderer>().color;
 		}
 	}
 

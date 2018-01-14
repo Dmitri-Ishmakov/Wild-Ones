@@ -13,7 +13,12 @@ public class WeaponSelector : MonoBehaviour
 
 	private bool stateBefore;
 
-
+	private void Start()
+	{
+		weaponSelector.enabled = false;
+		PlayerHealthUI.enabled = true;
+		PlayerHealthUIOff.enabled = false;
+	}
 	private void Update()
 	{
 		if (GameManager.isThrowable[GameManager.whoseTurn] == -1 && Input.GetKeyDown("space"))

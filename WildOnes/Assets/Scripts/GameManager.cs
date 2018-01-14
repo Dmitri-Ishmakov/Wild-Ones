@@ -30,9 +30,8 @@ public class GameManager : MonoBehaviour
 	public static GameObject[] activePlayers;
 	public static Vector3[,] distanceMoved;
 	public static bool gameOver = false;
-
-	public static int whoseTurnLast = 0;
-	public static int whoseTurn = 0;
+	
+	public static int whoseTurn;
 	public static int numPlayers;
 	public static int numPlayersAlive;
 	public GameObject[] turnAnnouncer;
@@ -44,6 +43,8 @@ public class GameManager : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
+		gameOver = false;
+		whoseTurn = 0;
 		endOfGame.enabled = false;
 		numPlayers = PlayerPrefs.GetInt("numPlayers");
 		isThrowable = new int[transform.childCount];
@@ -58,22 +59,18 @@ public class GameManager : MonoBehaviour
 		//set the players to their correct character model
 		if (PlayerPrefs.GetInt("CharacterOne") != -1)
 		{
-			player1 = players[PlayerPrefs.GetInt("CharacterOne")];
 			activePlayers[0] = player1;
 		}
 		if (PlayerPrefs.GetInt("CharacterTwo") != -1)
 		{
-			player2 = players[PlayerPrefs.GetInt("CharacterTwo")];
 			activePlayers[1] = player2;
 		}
 		if (PlayerPrefs.GetInt("CharacterThree") != -1)
 		{
-			player3 = players[PlayerPrefs.GetInt("CharacterThree")];
 			activePlayers[2] = player3;
 		}
 		if (PlayerPrefs.GetInt("CharacterFour") != -1)
 		{
-			player4 = players[PlayerPrefs.GetInt("CharacterFour")];
 			activePlayers[3] = player4;
 		}
 

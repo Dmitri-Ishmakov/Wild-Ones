@@ -21,7 +21,7 @@ public class WeaponThrow : MonoBehaviour
 
 	public Rigidbody2D rb;
 	public float releaseTime = .15f;
-	private PlayerStats player;
+	//private PlayerStats player;
 	private int whoseTurn;
 
 	private void OnMouseDown()
@@ -31,7 +31,7 @@ public class WeaponThrow : MonoBehaviour
 		{
 			isPressed = true;
 			hasGrabbed = true;
-			player = GameManager.activePlayers[whoseTurn].GetComponent<PlayerStats>();
+			//player = GameManager.activePlayers[whoseTurn].GetComponent<PlayerStats>();
 		}
 	}
 

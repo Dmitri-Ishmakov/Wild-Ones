@@ -102,7 +102,6 @@ public class EndOfGame : MonoBehaviour
 
 	public void StartNewGame()
 	{
-		PlayerPrefs.DeleteAll();
 		SceneManager.LoadScene("CharacterSelector");
 	}
 

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Flying Boy
   description: Just a temporary Flying Boy Sprite
+  Image: {fileID: 21300000, guid: 6c36add459ef42d458d68c662023c12e, type: 3}
+  health: 50
   jumpPower: 0.75
   throwPower: 0.5
   canFly: 0
-  Image: {fileID: 21300000, guid: 6c36add459ef42d458d68c662023c12e, type: 3}

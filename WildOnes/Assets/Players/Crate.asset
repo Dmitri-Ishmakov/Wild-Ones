@@ -13,7 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Crate
   description: Just a Temporary Crate Sprite
+  Image: {fileID: 21300000, guid: cff6314fa808a5544b6ad9596d32f4c7, type: 3}
+  health: 10
   jumpPower: 0.5
   throwPower: 0.5
   canFly: 0
-  Image: {fileID: 21300000, guid: cff6314fa808a5544b6ad9596d32f4c7, type: 3}
