@@ -21,7 +21,6 @@ public class CharacterSelection : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-
 		//create the array that will hold our character models
 		characterList = new GameObject[transform.childCount];
 
