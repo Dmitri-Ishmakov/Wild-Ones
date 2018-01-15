@@ -28,6 +28,9 @@ public class PlayerTurnIndicator : MonoBehaviour {
 
 	void Update()
 	{
-		turnIndicator.transform.position = icons[GameManager.whoseTurn].transform.position;
+		if (GameManager.whoseTurn < 4)
+		{
+			turnIndicator.transform.position = icons[GameManager.whoseTurn].transform.position;
+		}
 	}
 }

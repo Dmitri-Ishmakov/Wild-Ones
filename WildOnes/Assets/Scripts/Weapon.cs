@@ -11,7 +11,7 @@ public class Weapon : MonoBehaviour
 	[HideInInspector]
 	public int fuseLength;
 	[HideInInspector]
-	public int explosionRadius;
+	private int explosionRadius;
 	[HideInInspector]
 	public int explosionStrength;
 	[HideInInspector]
@@ -20,9 +20,9 @@ public class Weapon : MonoBehaviour
 	[HideInInspector]
 	public int intFuseLeft;
 	[HideInInspector]
-	public int terrainDamage;
+	private int terrainDamage;
 	[HideInInspector]
-	public GameObject explosion;
+	private GameObject explosion;
 	[HideInInspector]
 	public int whoThrew;
 
@@ -78,7 +78,7 @@ public class Weapon : MonoBehaviour
 	public void Explode(int damage)
 	{
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
-		GameObject cloneExplosion = Instantiate(explosion, transform.position, transform.rotation);
+		StartCoroutine(Boom());
 		PlayerStats activePlayer = GameManager.activePlayers[whoThrew].GetComponent<PlayerStats>();
 
 		foreach(Collider2D nearbyObject in colliders){
@@ -106,6 +106,12 @@ public class Weapon : MonoBehaviour
 
 
 		Destroy(gameObject);
+	}
+
+	IEnumerator Boom()
+	{
+		GameObject cloneExplosion = Instantiate(explosion, transform.position, transform.rotation);
+		yield return new WaitForSecondsRealtime(1);
 		Destroy(cloneExplosion);
 	}
 }

@@ -30,13 +30,14 @@ public class GameManager : MonoBehaviour
 	public static GameObject[] activePlayers;
 	public static Vector3[,] distanceMoved;
 	public static bool gameOver = false;
-	
+
 	public static int whoseTurn;
 	public static int numPlayers;
 	public static int numPlayersAlive;
 	public GameObject[] turnAnnouncer;
 
 	private float counter = 1f;
+	public static int winner;
 
 
 
@@ -120,6 +121,14 @@ public class GameManager : MonoBehaviour
 			}
 			else
 			{
+				winner = -1;
+				for (int i = 0; i < activePlayers.Length; i++)
+				{
+					if (activePlayers[i].GetComponent<PlayerStats>().isAlive)
+					{
+						winner = i;
+					}
+				}
 				numPlayersAlive = 0;
 				endOfGame.enabled = true;
 				gameOver = true;

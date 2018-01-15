@@ -27,7 +27,6 @@ public class CharacterSelection : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		PlayerPrefs.DeleteAll();
 		indexChar1 = -1;
 		indexChar2 = -1;
 		indexChar3 = -1;
@@ -178,13 +177,6 @@ public class CharacterSelection : MonoBehaviour
 			playerColorList[i].SetActive(true);
 		}
 		selectedChars = new int[numChar, 2];
-		/*
-		for (int i = 0; i < selectedChars.Length; i++)
-		{
-			selectedChars[i, 0] = -1;
-			selectedChars[i, 1] = -1;
-		}
-		*/
 	}
 
 	public void setThree()
@@ -205,11 +197,6 @@ public class CharacterSelection : MonoBehaviour
 			playerColorList[i].SetActive(true);
 		}
 		selectedChars = new int[numChar, 2];
-		for (int i = 0; i < selectedChars.Length; i++)
-		{
-			selectedChars[i, 0] = -1;
-			selectedChars[i, 1] = -1;
-		}
 	}
 
 	public void SetFour()
@@ -229,11 +216,6 @@ public class CharacterSelection : MonoBehaviour
 			playerColorList[i].SetActive(true);
 		}
 		selectedChars = new int[numChar, 2];
-		for (int i = 0; i < selectedChars.Length; i++)
-		{
-			selectedChars[i, 0] = -1;
-			selectedChars[i, 1] = -1;
-		}
 	}
 
 	public void whoStays()
@@ -306,7 +288,7 @@ public class CharacterSelection : MonoBehaviour
 
 		if (charsSelected > numChar)
 		{
-			SceneManager.LoadScene("Main Game");
+			SceneManager.LoadScene(PlayerPrefs.GetString("Level Selected"));
 		}
 
 	}

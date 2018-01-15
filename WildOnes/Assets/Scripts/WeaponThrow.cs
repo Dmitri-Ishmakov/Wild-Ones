@@ -26,6 +26,7 @@ public class WeaponThrow : MonoBehaviour
 
 	private void OnMouseDown()
 	{
+		Debug.Log("HasClicked");
 		whoseTurn = GameManager.whoseTurn;
 		if (GameManager.isThrowable[whoseTurn] == 1)
 		{
@@ -38,8 +39,10 @@ public class WeaponThrow : MonoBehaviour
 	
 	private void OnMouseUp()
 	{
+		Debug.Log("Have Let Go");
 		if (hasGrabbed)
 		{
+			GameManager.isThrowable[whoseTurn] = -1;
 			hasThrown = true;
 			hasGrabbed = false;
 			rb.isKinematic = false;

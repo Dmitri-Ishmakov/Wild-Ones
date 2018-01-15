@@ -34,6 +34,13 @@ public class EndOfGame : MonoBehaviour
 	public GameObject player4Dmg;
 
 	private GameObject[] playersDmg;
+
+	public GameObject player1win;
+	public GameObject player2win;
+	public GameObject player3win;
+	public GameObject player4win;
+	private GameObject[] winnerwinner;
+
 	private bool hasUpdated = false;
 
 	private void Start()
@@ -64,6 +71,17 @@ public class EndOfGame : MonoBehaviour
 		playerKills[2] = player3Kills;
 		playerKills[3] = player4Kills;
 
+		winnerwinner = new GameObject[4];
+		winnerwinner[0] = player1win;
+		winnerwinner[1] = player2win;
+		winnerwinner[2] = player3win;
+		winnerwinner[3] = player4win;
+
+		for(int k = 0; k < winnerwinner.Length; k++)
+		{
+			winnerwinner[k].SetActive(false);
+		}
+
 		for(int j = numPlayers; j < 4; j++)
 		{
 			playerHolders[j].SetActive(false);
@@ -74,6 +92,7 @@ public class EndOfGame : MonoBehaviour
 		for (int i = 0; i < numPlayers; i++)
 		{
 			players[i].sprite = GameManager.activePlayers[i].GetComponent<SpriteRenderer>().sprite;
+			players[i].color = GameManager.activePlayers[i].GetComponent<SpriteRenderer>().color;
 		}
 
 
@@ -96,13 +115,18 @@ public class EndOfGame : MonoBehaviour
 			{
 				playerKills[k].GetComponent<TextMeshProUGUI>().text = GameManager.activePlayers[k].GetComponent<PlayerStats>().kills.ToString();
 			}
+			if (GameManager.winner != -1)
+			{
+				winnerwinner[GameManager.winner].SetActive(true);
+			}
+			hasUpdated = true;
 		}
 	}
 
 
 	public void StartNewGame()
 	{
-		SceneManager.LoadScene("CharacterSelector");
+		SceneManager.LoadScene("Main Menu");
 	}
 
 }
