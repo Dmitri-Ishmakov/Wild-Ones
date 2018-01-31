@@ -16,6 +16,7 @@ public class ThrowWithImpulse : MonoBehaviour
 	public int maxDistance;
 	private Vector2 heading;
 	private Vector3 maxPoint;
+	private Vector3 initialPos;
 	private float currentDistance;
 
 	public float releaseTime = .15f;
@@ -24,9 +25,7 @@ public class ThrowWithImpulse : MonoBehaviour
 	private PlayerStats player;
 	private Rigidbody2D activePlayer;
 	private int whoseTurn;
-
-
-
+	
 	private void OnMouseDown()
 	{
 		whoseTurn = GameManager.whoseTurn;
@@ -60,13 +59,14 @@ public class ThrowWithImpulse : MonoBehaviour
 			}
 		}
 	}
-
+	
 	private void Update()
 	{
 		if (hasThrown && player.canFly && Input.GetKeyDown("space"))
 		{
 			activePlayer.AddForce(Vector2.up * 10, ForceMode2D.Impulse);
 		}
+		
 		if (isPressed)
 		{
 			heading.x = -Camera.main.ScreenToWorldPoint(Input.mousePosition).x + rb.position.x;
@@ -80,7 +80,8 @@ public class ThrowWithImpulse : MonoBehaviour
 			}
 		}
 
-	}
+		}
+
 
 	private void increment()
 	{
